@@ -1,4 +1,4 @@
-# INSTRUCTIONS
+# HOW TO USE THE STUDIO GUI
 
 ## If you have no executer :
 
@@ -16,7 +16,9 @@
 
 - Just Paste The Following Lua Script on the Console and then Execute
 
-## CUSTOMIZATION
+--------------------------------------------
+
+# CUSTOMIZATION
 
 - if you want to change Colours then
 
