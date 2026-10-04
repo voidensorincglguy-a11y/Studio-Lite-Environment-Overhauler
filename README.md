@@ -1,4 +1,4 @@
-# HOW TO USE THE STUDIO GUI
+# • HOW TO USE THE STUDIO GUI
 
 ## If you have no executer :
 
@@ -18,7 +18,7 @@
 
 --------------------------------------------
 
-# CUSTOMIZATION
+# • CUSTOMIZATION
 
 - if you want to change Colours then
 
