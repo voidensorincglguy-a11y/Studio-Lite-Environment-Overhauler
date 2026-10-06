@@ -22,7 +22,7 @@
 
 - if you want to change Colours then
 
-- Click settings on the Topbar
+- Click settings on the Main bar
 
 - And Click Theme Colours
 
