@@ -1,4 +1,4 @@
--- No stealing From Me, Use script if you have problems with Studio Lites Guis
+-- Studio environment Overhauler :D
 -- By Fogged
 
 
