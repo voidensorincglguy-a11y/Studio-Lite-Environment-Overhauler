@@ -27,3 +27,11 @@
 - And Click Theme Colours
 
 - and select Whatever is in there
+
+--------------------------------------------
+
+# • LEARN GUI
+
+- You can click the help button to learn things like classes, buttons, and Objects
+
+- Search engine coming soon
