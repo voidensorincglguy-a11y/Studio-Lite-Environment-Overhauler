@@ -168,11 +168,16 @@ HelpBtn.TextSize = 16
 HelpBtn.Text = "Learn"
 HelpBtn.Name = "LearnBtn"
 
+-- Guis
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
+
 for _, Obj in pairs(HelpBtn:GetChildren()) do
 if Obj:IsA("ImageLabel") then
 Obj.Image = "rbxthumb://type=Asset&id=13699632798&w=420&h=420"
 end
 end
+
 CloneBar.Activated:Connect(function()
     if Toggled == false then
         Explorer.Visible = false
@@ -323,6 +328,3 @@ if TBar then
     end
 end
 
--- Guis
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
