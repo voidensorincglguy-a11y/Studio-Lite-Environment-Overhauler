@@ -1,1 +1,1 @@
-local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
+print("Learn tab Loaded!")
