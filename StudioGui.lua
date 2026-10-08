@@ -159,7 +159,8 @@ if TImageLabelMainBar then
     TStroke.Color = MainColors.White
 end
  
-local HelpBtn = TemplateBtnMainBar:Clone()
+getgenv().Helpbtn = TemplateBtnMainBar:Clone()
+HelpBtn = getgenv().Helpbtn
 local ImageQBtn
 HelpBtn.Parent = MainBar
 HelpBtn.Position = UDim2.new(0.525599957, 0, 0, 3)
