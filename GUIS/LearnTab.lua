@@ -9,7 +9,6 @@ RBlack = Color3.fromRGB(10,10,10)
 local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
 local MainBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.MainBar
 
-local Btn = getgenv().Helpbtn
 local Toggle = false
 
 local frame = Instance.new("Frame" StudioGui)
@@ -22,7 +21,7 @@ frame.ZIndex = 0
 frame.BorderSizePixel = 0
 frame.Visible = false
 
-Btn.Activated:Connect(function()
+getgenv().Helpbtn.Activated:Connect(function()
     if Toggle == false then
       frame.Visible = true
       Toggle = true
