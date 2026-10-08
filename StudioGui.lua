@@ -167,6 +167,7 @@ HelpBtn.Position = UDim2.new(0.525599957, 0, 0, 3)
 HelpBtn.TextScaled = false
 HelpBtn.TextSize = 16
 HelpBtn.Text = "Learn"
+HelpBtn.Name = "LearnBtn"
 
 for _, Obj in pairs(HelpBtn:GetChildren()) do
 if Obj:IsA("ImageLabel") then
