@@ -1,1 +1,1 @@
-yo
+local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
