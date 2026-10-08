@@ -6,6 +6,10 @@ RBlack = Color3.fromRGB(10,10,10)
 }
 
 local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
+local MainBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.MainBar
+
+local Btn = MainBar:FindFirstChild("LearnBtn")
+local Toggle = false
 
 local frame = Instance.new("Frame" StudioGui)
 
@@ -16,3 +20,12 @@ frame.BackgroundColor3 = MainColors.Black
 frame.ZIndex = 0
 frame.BorderSizePixel = 0
 
+Btn.Activated:Connect(function()
+    if Toggle == false then
+      frame.Visible = true
+      Toggle = true
+    elseif Toggle == true then
+      frame.Visible = false
+      Toggle = false
+    end
+  end
