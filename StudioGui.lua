@@ -1,11 +1,12 @@
 -- Studio environment Overhauler :D
 -- By Fogged
-
-
+ 
+ 
 local MainColors = {
 Black = Color3.fromRGB(35, 35, 40),
 Metallic = Color3.fromRGB(56, 57, 57),
-White = Color3.fromRGB(255, 255, 255)
+White = Color3.fromRGB(255, 255, 255),
+RBlack = Color3.fromRGB(10,10,10)
 }
 local MainBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.MainBar
 local StopBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.Stop
@@ -13,73 +14,84 @@ local TBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.TopBar
 local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
 local Explorer = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.ExplorerPanel
 local Properties = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.PropertiesPanel
- 
+
 local TemplateBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.TopBar.GrowingUp
 local CloneBar = TemplateBar:Clone()
 CloneBar.Position = UDim2.new(0,325,0,0)
 CloneBar.Name = "HideBtn"
 CloneBar.Parent = TBar
 CloneBar.Text = "Hide Explorer"
- 
+
 local PluginsBtn = CloneBar:Clone()
 PluginsBtn.Name = "Plugins"
 PluginsBtn.Text = "Plugins"
 PluginsBtn.Position = UDim2.new(0,470,0,0)
 PluginsBtn.Size = UDim2.new(0,90,1,0)
 PluginsBtn.Parent = TBar
- 
- 
- 
+
+
+
 local PluginsTab = Instance.new("ScrollingFrame", StudioGui)
 PluginsTab.Size = UDim2.new(0.900, 0, 0.564828396, 0)
 PluginsTab.Position = UDim2.new(0.05418, 0, 0.25, 0)
 PluginsTab.BackgroundColor3 = MainColors.Black
 PluginsTab.Visible = false
 PluginsTab.Name = "PluginsTabFrame"
-
-local PluginsLayout = Instance.new("UIListLayout", PluginsTab)
  
+local PluginsLayout = Instance.new("UIListLayout", PluginsTab)
+
 for _, v in pairs(CloneBar:GetChildren()) do
     if v:IsA("LocalScript") then
         v:Destroy()
     end
 end
- 
+
 for _, v in pairs(PluginsBtn:GetChildren()) do
     if v:IsA("LocalScript") then
         v:Destroy()
     end
 end
- 
+
 local Toggled = false
 local Toggled2 = false
 local Toggled3 = false
-
+ 
 local UIStroke = Instance.new("UIStroke", MainBar)
 local UICorner = Instance.new("UICorner", MainBar)
- 
+
 local UIStroke2 = Instance.new("UIStroke", StopBar)
 local UICorner2 = Instance.new("UICorner", StopBar)
- 
+
 local UIStroke3 = Instance.new("UIStroke", TBar)
 local UICorner3 = Instance.new("UICorner", TBar)
- 
+
 local UIStroke4 = Instance.new("UIStroke", PluginsTab)
 local UICorner4 = Instance.new("UICorner", PluginsTab)
- 
+
 UIStroke4.Color = MainColors.White
- 
+
 UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- 
+
 UIStroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- 
+
 UIStroke3.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+local function ApplyA(Main)
+    if not Main then return end
+    local TCorner = UICorner:Clone()
+    local TStroke = UIStroke:Clone()
+    
+    TStroke.Parent = Main
+    TCorner.Parent = Main
+    
+    TStroke.Color = MainColors.White
+end
  
 MainBar.BackgroundColor3 = MainColors.Black
- 
+
 StopBar.BackgroundColor3 = MainColors.Metallic
 StopBar.TextColor3 = MainColors.White
- 
+
 local TemplateBtnMainBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.MainBar.move:Clone()
 local TImageLabelMainBar
 local SettingsBtnTab = Instance.new("Frame", StudioGui)
@@ -88,7 +100,7 @@ SettingsBtnTab.Position = UDim2.new(0.0515767783, 0, 0.300000012, 0)
 SettingsBtnTab.BackgroundColor3 = MainColors.Black
 SettingsBtnTab.Visible = false
 SettingsBtnTab.Name = "SettingsTab"
-
+ 
 local TabText = Instance.new("TextLabel", SettingsBtnTab)
 TabText.Position = UDim2.new(0.0192810781, 0, 0.0246479269, 0)
 TabText.BackgroundTransparency = 1
@@ -101,13 +113,35 @@ TabText.TextColor3 = MainColors.White
 TabText.TextSize = 24
 TabText.TextXAlignment = Enum.TextXAlignment.Left
  
+local ThemeColor = Instance.new("TextButton", SettingsBtnTab)
+ThemeColor.Text = "Theme Color"
+ThemeColor.BackgroundColor3 = MainColors.RBlack
+ThemeColor.TextColor3 = MainColors.White
+ThemeColor.Size = UDim2.new(0.248, 0, 0.156, 0)
+ThemeColor.Position = UDim2.new(0.013, 0, 0.19, 0)
+ThemeColor.Name = "ThemeColorBtn"
+ThemeColor.TextSize = 18
+ThemeColor.Font = Enum.Font.Gotham
+ApplyA(ThemeColor)
+ 
+local HelpText = Instance.new("TextButton", SettingsBtnTab)
+HelpText.Text = "New to coding? Click here!"
+HelpText.BackgroundColor3 = MainColors.Metallic
+HelpText.TextColor3 = MainColors.White
+HelpText.Size = UDim2.new(0.611, 0, 0.094, 0)
+HelpText.Position = UDim2.new(0.373, 0, 0.021, 0)
+HelpText.Name = "HelpLinkBtn"
+HelpText.TextSize = 18
+HelpText.Font = Enum.Font.Gotham
+ApplyA(HelpText)
+ 
 for _, v in pairs(TemplateBtnMainBar:GetChildren()) do
     if v.Name == "move" then
         TImageLabelMainBar = v
         break
     end
 end
- 
+
 if TImageLabelMainBar then
     TemplateBtnMainBar.Position = UDim2.new(0.455000013, 0, 0, 3)
     TemplateBtnMainBar.Size = UDim2.new(0, 50, 0, 50)
@@ -125,7 +159,20 @@ if TImageLabelMainBar then
     TCorner.Parent = SettingsBtnTab
     TStroke.Color = MainColors.White
 end
+ 
+local HelpBtn = TemplateBtnMainBar:Clone()
+local ImageQBtn
+HelpBtn.Parent = MainBar
+HelpBtn.Position = UDim2.new(0.525599957, 0, 0, 3)
+HelpBtn.TextScaled = false
+HelpBtn.TextSize = 16
+HelpBtn.Text = "Learn"
 
+for _, Obj in pairs(HelpBtn:GetChildren()) do
+if Obj:IsA("ImageLabel") then
+Obj.Image = "rbxthumb://type=Asset&id=13699632798&w=420&h=420"
+end
+end
 CloneBar.Activated:Connect(function()
     if Toggled == false then
         Explorer.Visible = false
@@ -140,7 +187,7 @@ CloneBar.Activated:Connect(function()
         CloneBar.Text = "Hide Explorer"
     end
 end)
- 
+
 PluginsBtn.Activated:Connect(function()
     if Toggled2 == false then
         PluginsTab.Visible = true
@@ -154,7 +201,7 @@ PluginsBtn.Activated:Connect(function()
         Toggled2 = false
     end
 end)
-
+ 
 TemplateBtnMainBar.Activated:Connect(function()
     if Toggled3 == false then
         SettingsBtnTab.Visible = true
@@ -169,16 +216,9 @@ TemplateBtnMainBar.Activated:Connect(function()
         Toggled3 = false
     end
 end)
+
  
-local function ApplyA(Main)
-    if not Main then return end
-    local TCorner = UICorner:Clone()
-    local TStroke = UIStroke:Clone()
-    
-    TStroke.Parent = Main
-    TCorner.Parent = Main
-end
- 
+
 if MainBar then
     
     for _, v in pairs(MainBar:GetChildren()) do
@@ -242,7 +282,7 @@ if MainBar then
         end
     end
 end
- 
+
 if TBar then
     TBar.BackgroundColor3 = MainColors.Black
     for _, v in pairs(TBar:GetChildren()) do
