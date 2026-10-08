@@ -19,6 +19,7 @@ frame.Size = UDim2.new(1,0,1,0)
 frame.BackgroundColor3 = MainColors.Black
 frame.ZIndex = 0
 frame.BorderSizePixel = 0
+frame.Visible = false
 
 Btn.Activated:Connect(function()
     if Toggle == false then
