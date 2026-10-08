@@ -2,7 +2,7 @@ local HelpBtn, StudioGui, MainBar = ...
 
 local MainColors = {
 Black = Color3.fromRGB(35, 35, 40),
-Metallic = Color3.fromRGB(56, 57, 57),
+Metallic = Color3.fromRGB(46, 48, 57),
 White = Color3.fromRGB(255, 255, 255),
 RBlack = Color3.fromRGB(10,10,10)
 }
@@ -20,8 +20,8 @@ frame.ZIndex = 0
 frame.BorderSizePixel = 0
 frame.Visible = false
 
-SF.Position = UDim2.new(0.85, 0, 0.8, 0)
-SF.Size = UDim2.new(0.15, 0, 0.2, 0)
+SF.Position = UDim2.new(0.15, 0, 0.2, 0)
+SF.Size = UDim2.new(0.85, 0, 0.8, 0)
 SF.BorderSizePixel = 0
 SF.ZIndex = 0
 SF.BackgroundColor3 = MainColors.Black
