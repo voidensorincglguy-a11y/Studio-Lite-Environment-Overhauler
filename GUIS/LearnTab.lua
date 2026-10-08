@@ -1,3 +1,4 @@
+task.wait(1)
 local MainColors = {
 Black = Color3.fromRGB(35, 35, 40),
 Metallic = Color3.fromRGB(56, 57, 57),
