@@ -9,7 +9,7 @@ RBlack = Color3.fromRGB(10,10,10)
 local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
 local MainBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.MainBar
 
-local Btn = MainBar:WaitForChild("LearnBtn")
+local Btn = getgenv().Helpbtn
 local Toggle = false
 
 local frame = Instance.new("Frame" StudioGui)
