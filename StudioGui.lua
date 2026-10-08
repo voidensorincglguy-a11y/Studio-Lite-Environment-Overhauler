@@ -324,4 +324,5 @@ if TBar then
 end
 
 -- Guis
- loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
