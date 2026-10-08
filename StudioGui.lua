@@ -1,7 +1,6 @@
 -- Studio environment Overhauler :D
 -- By Fogged
- 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
+
 local MainColors = {
 Black = Color3.fromRGB(35, 35, 40),
 Metallic = Color3.fromRGB(56, 57, 57),
@@ -323,3 +322,6 @@ if TBar then
         end
     end
 end
+
+-- Guis
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
