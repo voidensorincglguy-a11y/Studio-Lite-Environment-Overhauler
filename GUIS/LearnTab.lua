@@ -1,13 +1,11 @@
-task.wait(1)
+local HelpBtn, StudioGui, MainBar = ...
+
 local MainColors = {
 Black = Color3.fromRGB(35, 35, 40),
 Metallic = Color3.fromRGB(56, 57, 57),
 White = Color3.fromRGB(255, 255, 255),
 RBlack = Color3.fromRGB(10,10,10)
 }
-
-local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
-local MainBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.MainBar
 
 local Toggle = false
 
@@ -21,7 +19,7 @@ frame.ZIndex = 0
 frame.BorderSizePixel = 0
 frame.Visible = false
 
-getgenv().Helpbtn.Activated:Connect(function()
+HelpBtn.Activated:Connect(function()
     if Toggle == false then
       frame.Visible = true
       Toggle = true
