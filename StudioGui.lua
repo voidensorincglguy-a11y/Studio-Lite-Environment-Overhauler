@@ -159,8 +159,7 @@ if TImageLabelMainBar then
     TStroke.Color = MainColors.White
 end
  
-getgenv().Helpbtn = TemplateBtnMainBar:Clone()
-local HelpBtn = getgenv().Helpbtn
+local HelpBtn = TemplateBtnMainBar:Clone()
 local ImageQBtn
 HelpBtn.Parent = MainBar
 HelpBtn.Position = UDim2.new(0.525599957, 0, 0, 3)
@@ -170,7 +169,7 @@ HelpBtn.Text = "Learn"
 HelpBtn.Name = "LearnBtn"
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))(HelpBtn, StudioGui, MainBar)
 
 
 for _, Obj in pairs(HelpBtn:GetChildren()) do
