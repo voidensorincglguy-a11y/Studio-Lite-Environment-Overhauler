@@ -1,5 +1,6 @@
 -- Studio environment Overhauler :D
 -- By Fogged
+loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
 
 local MainColors = {
 Black = Color3.fromRGB(35, 35, 40),
@@ -170,7 +171,6 @@ HelpBtn.Text = "Learn"
 HelpBtn.Name = "LearnBtn"
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
 
 for _, Obj in pairs(HelpBtn:GetChildren()) do
 if Obj:IsA("ImageLabel") then
