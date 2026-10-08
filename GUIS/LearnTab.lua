@@ -1,1 +1,1 @@
-print("Learn tab Loaded!")
+local frame = Instance.new("Frame" StudioGui)
