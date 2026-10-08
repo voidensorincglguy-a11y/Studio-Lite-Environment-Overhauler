@@ -1,6 +1,5 @@
 -- Studio environment Overhauler :D
 -- By Fogged
-loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))()
 
 local MainColors = {
 Black = Color3.fromRGB(35, 35, 40),
@@ -160,8 +159,7 @@ if TImageLabelMainBar then
     TStroke.Color = MainColors.White
 end
  
-getgenv().Helpbtn = TemplateBtnMainBar:Clone()
-local HelpBtn = getgenv().Helpbtn
+local HelpBtn = TemplateBtnMainBar:Clone()
 local ImageQBtn
 HelpBtn.Parent = MainBar
 HelpBtn.Position = UDim2.new(0.525599957, 0, 0, 3)
@@ -170,7 +168,26 @@ HelpBtn.TextSize = 16
 HelpBtn.Text = "Learn"
 HelpBtn.Name = "LearnBtn"
 
+local Toggle4 = false
+local frame = Instance.new("Frame" StudioGui)
 
+frame.Name = "LearnTab"
+frame.Position = UDim2.new(0,0,0,0)
+frame.Size = UDim2.new(1,0,1,0)
+frame.BackgroundColor3 = MainColors.Black
+frame.ZIndex = 0
+frame.BorderSizePixel = 0
+frame.Visible = false
+
+HelpBtn.Activated:Connect(function()
+    if Toggle4 == false then
+      frame.Visible = true
+      Toggle4 = true
+    elseif Toggle4 == true then
+      frame.Visible = false
+      Toggle4 = false
+    end
+end)
 
 for _, Obj in pairs(HelpBtn:GetChildren()) do
 if Obj:IsA("ImageLabel") then
