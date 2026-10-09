@@ -28,7 +28,7 @@ function CreateGui:CreateFrame(pos, size, parent, color, scolor)
   return Frame
 end
 
-function CreateGui:CreateFrame(pos, size, parent, color, scolor, IsMultiline)
+function CreateGui:CreateTBox(pos, size, parent, color, scolor, IsMultiline)
   local TextBox = Instance.new("TextBox", parent)
   TextBox.Position = pos
   TextBox.Size = size
