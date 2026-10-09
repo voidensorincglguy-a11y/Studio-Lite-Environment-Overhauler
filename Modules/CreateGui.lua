@@ -2,7 +2,7 @@ local CreateGui = {}
 CreateGui.__index = CreateGui
 
 function CreateGui:CreateSFrame(pos, size, parent, color, scolor, csize)
-  local ScrollingFrame = Instance.new("ScrollingFrame", parent)
+  local ScrollingFrame = Instance.new("Frame", parent)
   ScrollingFrame.Position = pos
   ScrollingFrame.Size = size
   ScrollingFrame.BackgroundColor3 = color
