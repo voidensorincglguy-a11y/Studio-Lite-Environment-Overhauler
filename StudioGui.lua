@@ -14,6 +14,7 @@ local StudioGui = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui
 local Explorer = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.ExplorerPanel
 local Properties = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.PropertiesPanel
 
+local slfolder = game:GetService("ReplicatedStorage").StudioLiteFolder
 local TemplateBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.TopBar.GrowingUp
 local CloneBar = TemplateBar:Clone()
 CloneBar.Position = UDim2.new(0,325,0,0)
@@ -28,16 +29,31 @@ PluginsBtn.Position = UDim2.new(0,470,0,0)
 PluginsBtn.Size = UDim2.new(0,90,1,0)
 PluginsBtn.Parent = TBar
 
-
-
 local PluginsTab = Instance.new("ScrollingFrame", StudioGui)
 PluginsTab.Size = UDim2.new(0.900, 0, 0.564828396, 0)
 PluginsTab.Position = UDim2.new(0.05418, 0, 0.25, 0)
-PluginsTab.BackgroundColor3 = MainColors.Black
+PluginsTab.BackgroundColor3 = MainColors.White
 PluginsTab.Visible = false
 PluginsTab.Name = "PluginsTabFrame"
+PluginsTab.BorderColor3 = MainColors.RBlack
 
 local PluginsLayout = Instance.new("UIListLayout", PluginsTab)
+
+StopBar.MouseButton1Click:Connect(function()
+    local scripts = {}
+    local Parts = {}
+
+    for _, value in pairs(game:GetDescendants()) do
+        if value:IsA("Script") or value:IsA("LocalScript") or value:IsA("ModuleScript") and not slfolder:FindFirstChild(value.Name, true) and not value.Parent == nil and game.CoreGui:FindFirstChild(value.Name, true) then
+            table.insert(scripts, value)
+        elseif value:IsA("Part") and not slfolder:FindFirstChild(value.Name, true) and not game.ReplicatedStorage:FindFirstChild(value.Name, true) then
+            table.insert(Parts, value)
+        end
+    end
+
+    print("Current scripts : ", tostring(#scripts))
+    print("Current Parts : ", tostring(#Parts))
+end)
 
 for _, v in pairs(CloneBar:GetChildren()) do
     if v:IsA("LocalScript") then
@@ -55,81 +71,12 @@ local Toggled2 = false
 local Toggled3 = false
 local SS = {}
 
---[[
-SS["1"] = Instance.new("StyleSheet")
-SS["1"].Parent = StudioGui
-SS["1"].Name = "StyleUI"
-SS["2"] = Instance.new("StyleLink")
-SS["2"].StyleSheet = SS["1"]
-SS["2"].Parent = StudioGui
-SS["2E"] = Instance.new("StyleRule")
-SS["2E"].Parent = SS["1"]
-SS["2E"].Name = "StyleSheetRuler"
-SS["2E"].Selector = "TextButton"
-SS["2D"] = Instance.new("StyleRule", SS["2E"])
-SS["2D"].Selector = "::UIStroke"
-SS["2E"]:SetProperties({
-    ["BackgroundColor3"] = Color3.fromRGB(0,0,0),
-    ["TextColor3"] = Color3.fromRGB(255,255,255),
-    ["BorderSizePixel"] = 0,
-    ["Font"] = Enum.Font.Gotham
-})
-SS["2D"]:SetProperties({
-    ["Color"] = Color3.fromRGB(30,30,30),
-    ["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
-})
-SS["3"] = Instance.new("StyleRule")
-SS["3"].Parent = SS["1"]
-SS["3"].Name = "StyleSheetRuler"
-SS["3"].Selector = "Frame"
-SS["3F"] = Instance.new("StyleRule", SS["3"])
-SS["3F"].Selector = "::UIStroke"
-SS["3"]:SetProperties({
-    ["BackgroundColor3"] = Color3.fromRGB(0,0,0),
-    ["TextColor3"] = Color3.fromRGB(255,255,255),
-    ["BorderSizePixel"] = 0,
-})
-SS["3F"]:SetProperties({
-    ["Color"] = Color3.fromRGB(30,30,30),
-    ["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
-})
-SS["3h"] = Instance.new("StyleRule")
-SS["3h"].Parent = SS["1"]
-SS["3h"].Name = "StyleSheetRuler"
-SS["3h"].Selector = "ScrollingFrame"
-SS["3G"] = Instance.new("StyleRule")
-SS["3G"].Parent = SS["3h"]
-SS["3G"].Selector = "::UIStroke"
-
-SS["3h"]:SetProperties({
-    ["BackgroundColor3"] = Color3.fromRGB(0,0,0),
-    ["TextColor3"] = Color3.fromRGB(255,255,255),
-    ["BorderSizePixel"] = 0,
-    ["ScrollBarThickness"] = 0
-})
-SS["3G"]:SetProperties({
-    ["Color"] = Color3.fromRGB(30,30,30),
-    ["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
-})
-SS["3t"] = Instance.new("StyleRule")
-SS["3t"].Parent = SS["1"]
-SS["3t"].Name = "StyleSheetRuler"
-SS["3t"].Selector = "TextLabel"
-
-SS["3t"]:SetProperties({
-    ["BackgroundTransparency"] = 1,
-    ["TextColor3"] = Color3.fromRGB(255,255,255),
-    ["BorderSizePixel"] = 0,
-    ["Font"] = Enum.Font.Gotham
-})
-]]
-
 local TemplateBtnMainBar = game:GetService("Players").LocalPlayer.PlayerGui.StudioGui.MainBar.move:Clone()
 local TImageLabelMainBar
 local SettingsBtnTab = Instance.new("Frame", StudioGui)
 SettingsBtnTab.Size = UDim2.new(0.899999976, 0, 0.564828396, 0)
 SettingsBtnTab.Position = UDim2.new(0.0515767783, 0, 0.300000012, 0)
-SettingsBtnTab.BackgroundColor3 = MainColors.Black
+SettingsBtnTab.BackgroundColor3 = MainColors.White
 SettingsBtnTab.Visible = false
 SettingsBtnTab.Name = "SettingsTab"
 
@@ -141,26 +88,28 @@ TabText.Font = Enum.Font.Gotham
 TabText.Size = UDim2.new(0.515968919, 0, 0.107485831, 0)
 TabText.ZIndex = 2
 TabText.Name = "TabText"
-TabText.TextColor3 = MainColors.White
+TabText.TextColor3 = MainColors.RBlack
 TabText.TextSize = 24
 TabText.TextXAlignment = Enum.TextXAlignment.Left
 
 local ThemeColor = Instance.new("TextButton", SettingsBtnTab)
 ThemeColor.Text = "Theme Color"
-ThemeColor.BackgroundColor3 = MainColors.RBlack
-ThemeColor.TextColor3 = MainColors.White
+ThemeColor.BackgroundColor3 = MainColors.White
+ThemeColor.TextColor3 = MainColors.RBlack
 ThemeColor.Size = UDim2.new(0.248, 0, 0.156, 0)
 ThemeColor.Position = UDim2.new(0.013, 0, 0.19, 0)
 ThemeColor.Name = "ThemeColorBtn"
 ThemeColor.TextSize = 18
-ThemeColor.BorderSizePixel = 0
+ThemeColor.BorderSizePixel = 1
+ThemeColor.BorderColor3 = MainColors.RBlack
 ThemeColor.Font = Enum.Font.Gotham
 
 local HelpText = Instance.new("TextButton", SettingsBtnTab)
 HelpText.Text = "New to coding? Click here!"
-HelpText.BackgroundColor3 = MainColors.Metallic
-HelpText.TextColor3 = MainColors.White
-HelpText.BorderSizePixel = 0
+HelpText.BackgroundColor3 = MainColors.White
+HelpText.TextColor3 = MainColors.RBlack
+HelpText.BorderSizePixel = 1
+HelpText.BorderColor3 = MainColors.RBlack
 HelpText.Size = UDim2.new(0.611, 0, 0.094, 0)
 HelpText.Position = UDim2.new(0.373, 0, 0.021, 0)
 HelpText.Name = "HelpLinkBtn"
