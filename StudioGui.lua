@@ -202,9 +202,37 @@ HelpBtn.Text = "Learn"
 HelpBtn.Name = "LearnBtn"
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/voidensorincglguy-a11y/Studio-Lite-Environment-Overhauler/refs/heads/main/GUIS/LearnTab.lua"))(HelpBtn, StudioGui, MainBar)
+local T = false
+
+local frame = Instance.new("Frame", StudioGui)
+local SF = Instance.new("ScrollingFrame", frame)
+
+frame.Name = "LearnTab"
+frame.Position = UDim2.new(0,0,0,0)
+frame.Size = UDim2.new(1,0,1,0)
+frame.BackgroundColor3 = MainColors.Metallic
+frame.ZIndex = 0
+frame.BorderSizePixel = 0
+frame.Visible = false
+
+SF.Position = UDim2.new(0.15, 0, 0.2, 0)
+SF.Size = UDim2.new(0.85, 0, 0.8, 0)
+SF.BorderSizePixel = 0
+SF.ZIndex = 0
+SF.BackgroundColor3 = MainColors.Black
+SF.BorderColor3 = MainColors.Black
+SF.ScrollBarThickness = 3
 
 
+HelpBtn.Activated:Connect(function()
+    if T == false then
+      frame.Visible = true
+      T = true
+    elseif T == true then
+      frame.Visible = false
+      T = false
+    end
+end)
 for _, Obj in pairs(HelpBtn:GetChildren()) do
 if Obj:IsA("ImageLabel") then
 Obj.Image = "rbxthumb://type=Asset&id=13699632798&w=420&h=420"
