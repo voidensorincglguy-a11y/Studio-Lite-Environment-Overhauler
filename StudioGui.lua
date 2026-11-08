@@ -55,37 +55,70 @@ local Toggled = false
 local Toggled2 = false
 local Toggled3 = false
  
-local UIStroke = Instance.new("UIStroke", MainBar)
-local UICorner = Instance.new("UICorner", MainBar)
+SS["1"] = Instance.new("StyleSheet")
+SS["1"].Parent = screenGui
+SS["1"].Name = "StyleUI"
+SS["2"] = Instance.new("StyleLink")
+SS["2"].StyleSheet = SS["1"]
+SS["2"].Parent = screenGui
+SS["2E"] = Instance.new("StyleRule")
+SS["2E"].Parent = SS["1"]
+SS["2E"].Name = "StyleSheetRuler"
+SS["2E"].Selector = "TextButtons"
+SS["2D"] = Instance.new("StyleRule", SS["2E"])
+SS["2D"].Selector = "::UIStroke"
+SS["2E"]:SetProperties({
+    ["BackgroundColor3"] = Color3.fromRGB(0,0,0),
+    ["TextColor3"] = Color3.fromRGB(255,255,255),
+    ["BorderSizePixel"] = 0,
+    ["Font"] = Enum.Font.Gotham
+})
+SS["2D"]:SetProperties({
+    ["Color"] = Color3.fromRGB(30,30,30),
+    ["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+})
+SS["3"] = Instance.new("StyleRule")
+SS["3"].Parent = SS["1"]
+SS["3"].Name = "StyleSheetRuler"
+SS["3"].Selector = "Frame"
+SS["3F"] = Instance.new("StyleRule", SS["3"])
+SS["3F"].Selector = "::UIStroke"
+SS["3"]:SetProperties({
+    ["BackgroundColor3"] = Color3.fromRGB(0,0,0),
+    ["TextColor3"] = Color3.fromRGB(255,255,255),
+    ["BorderSizePixel"] = 0,
+})
+SS["3F"]:SetProperties({
+    ["Color"] = Color3.fromRGB(30,30,30),
+    ["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+})
+SS["3-"] = Instance.new("StyleRule")
+SS["3-"].Parent = SS["1"]
+SS["3-"].Name = "StyleSheetRuler"
+SS["3-"].Selector = "ScrollingFrame",
+SS["3G"] = Instance.new("StyleRule", SS["3-"])
+SS["3G"].Selector = "::UIStroke"
+SS["3-"]:SetProperties({
+    ["BackgroundColor3"] = Color3.fromRGB(0,0,0),
+    ["TextColor3"] = Color3.fromRGB(255,255,255),
+    ["BorderSizePixel"] = 0,
+    ["ScrollBarThickness"] = 0
+})
+SS["3G"]:SetProperties({
+    ["Color"] = Color3.fromRGB(30,30,30),
+    ["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+})
+SS["3t"] = Instance.new("StyleRule")
+SS["3t"].Parent = SS["1"]
+SS["3t"].Name = "StyleSheetRuler"
+SS["3t"].Selector = "TextLabel"
+SS["3t"]:SetProperties({
+    ["BackgroundTransparency"] = 1,
+    ["TextColor3"] = Color3.fromRGB(255,255,255),
+    ["BorderSizePixel"] = 0,
+    ["Font"] = Enum.Font.Gotham
+})
 
-local UIStroke2 = Instance.new("UIStroke", StopBar)
-local UICorner2 = Instance.new("UICorner", StopBar)
-
-local UIStroke3 = Instance.new("UIStroke", TBar)
-local UICorner3 = Instance.new("UICorner", TBar)
-
-local UIStroke4 = Instance.new("UIStroke", PluginsTab)
-local UICorner4 = Instance.new("UICorner", PluginsTab)
-
-UIStroke4.Color = MainColors.White
-
-UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-UIStroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-UIStroke3.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-
-local function ApplyA(Main)
-    if not Main then return end
-    local TCorner = UICorner:Clone()
-    local TStroke = UIStroke:Clone()
-    
-    TStroke.Parent = Main
-    TCorner.Parent = Main
-    
-    TStroke.Color = MainColors.White
-end
- 
 MainBar.BackgroundColor3 = MainColors.Black
 
 StopBar.BackgroundColor3 = MainColors.Metallic
